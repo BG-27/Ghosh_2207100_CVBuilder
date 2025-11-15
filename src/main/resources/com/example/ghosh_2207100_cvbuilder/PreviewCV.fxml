@@ -13,7 +13,6 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.ghosh_2207100_cvbuilder.PreviewCVController">
 
-    <!-- Top Header -->
     <top>
         <VBox alignment="CENTER" spacing="10">
             <padding>
@@ -24,44 +23,40 @@
         </VBox>
     </top>
 
-    <!-- Center: Scrollable CV Content -->
     <center>
         <ScrollPane fitToWidth="true">
-            <VBox spacing="15">
-                <padding>
-                    <Insets top="20" right="20" bottom="20" left="20"/>
-                </padding>
+            <content>
+                <VBox spacing="15">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
 
-                <!-- Profile Section -->
-                <HBox spacing="15" alignment="CENTER_LEFT">
-                    <ImageView fx:id="profileImageView" fitWidth="120" fitHeight="120"/>
-                    <VBox spacing="5">
-                        <Label fx:id="nameLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
-                        <Label fx:id="emailLabel"/>
-                        <Label fx:id="phoneLabel"/>
-                        <Label fx:id="addressLabel"/>
-                    </VBox>
-                </HBox>
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <ImageView fx:id="profileImageView" fitWidth="120" fitHeight="120"/>
+                        <VBox spacing="5">
+                            <Label fx:id="nameLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                            <Label fx:id="emailLabel"/>
+                            <Label fx:id="phoneLabel"/>
+                            <Label fx:id="addressLabel"/>
+                        </VBox>
+                    </HBox>
 
-                <Separator/>
+                    <Separator/>
 
-                <!-- Education Section -->
-                <Label text="Education" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-                <VBox fx:id="educationVBox" spacing="5"/>
+                    <Label text="Education" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                    <VBox fx:id="educationVBox" spacing="5"/>
 
-                <!-- Skills Section -->
-                <Label text="Skills" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-                <VBox fx:id="skillsVBox" spacing="5"/>
+                    <Label text="Skills" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                    <VBox fx:id="skillsVBox" spacing="5"/>
 
-                <!-- Work Experience Section -->
-                <Label text="Work Experience" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-                <VBox fx:id="experienceVBox" spacing="5"/>
+                    <Label text="Work Experience" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                    <VBox fx:id="experienceVBox" spacing="5"/>
 
-                <!-- Projects Section -->
-                <Label text="Projects" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-                <VBox fx:id="projectsVBox" spacing="5"/>
+                    <Label text="Projects" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                    <VBox fx:id="projectsVBox" spacing="5"/>
 
-            </VBox>
+                </VBox>
+            </content>
         </ScrollPane>
     </center>
 

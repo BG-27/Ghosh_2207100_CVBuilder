@@ -16,6 +16,4 @@ public class HomeScreenController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Create Your CV");
-        stage.show();
-    }
-}
+        stage.show();}}

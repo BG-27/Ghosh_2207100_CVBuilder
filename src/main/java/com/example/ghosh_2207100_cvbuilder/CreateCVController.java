@@ -16,7 +16,6 @@ import java.io.IOException;
 
 public class CreateCVController {
 
-    // FXML fields EXACTLY as declared in your CreateCV.fxml
     @FXML private Button uploadButton;
     @FXML private ImageView profileImagePreview;
 
@@ -33,9 +32,6 @@ public class CreateCVController {
 
     @FXML private Button generateButton;
 
-    // ===========================
-    //  Photo Upload Handler
-    // ===========================
     @FXML
     private void handleUploadPhoto(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -44,7 +40,9 @@ public class CreateCVController {
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
         );
 
-        File file = fileChooser.showOpenDialog(null);
+        File file = fileChooser.showOpenDialog(
+                ((Node) event.getSource()).getScene().getWindow()
+        );
 
         if (file != null) {
             Image img = new Image(file.toURI().toString());
@@ -52,16 +50,12 @@ public class CreateCVController {
         }
     }
 
-    // ===========================
-    //  Generate CV Button (navigates to preview and passes data)
-    // ===========================
     @FXML
     private void handleGenerateCV(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("PreviewCV.fxml"));
         Scene scene = new Scene(loader.load());
 
-        // Send data to PreviewCVController
         PreviewCVController controller = loader.getController();
         controller.setData(
                 safeText(fullNameField.getText()),
@@ -71,16 +65,13 @@ public class CreateCVController {
                 safeText(skillsArea.getText()),
                 safeText(experienceArea.getText()),
                 safeText(projectsArea.getText()),
-                profileImagePreview.getImage() // may be null; controller handles null
-        );
+                profileImagePreview.getImage() );
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Preview CV");
-        stage.show();
-    }
+        stage.show();}
 
     private String safeText(String s) {
         return s == null ? "" : s;
-    }
-}
+    }}

@@ -20,17 +20,7 @@ public class PreviewCVController {
     @FXML private VBox experienceVBox;
     @FXML private VBox projectsVBox;
 
-    /**
-     * Called from CreateCVController to populate preview.
-     * @param name full name
-     * @param email email
-     * @param phone phone
-     * @param address address
-     * @param skills skills text (can be comma or newline separated)
-     * @param experience experience text (newline separated)
-     * @param projects projects text (newline separated)
-     * @param profileImage JavaFX Image (may be null)
-     */
+
     public void setData(String name,
                         String email,
                         String phone,
@@ -51,7 +41,6 @@ public class PreviewCVController {
             profileImageView.setImage(null);
         }
 
-        // Populate skills VBox (split by comma or newline)
         skillsVBox.getChildren().clear();
         if (skills != null && !skills.trim().isEmpty()) {
             String[] items = skills.split("[,\\n]+");
@@ -63,7 +52,6 @@ public class PreviewCVController {
             skillsVBox.getChildren().add(new Label("No skills provided."));
         }
 
-        // Experience
         experienceVBox.getChildren().clear();
         if (experience != null && !experience.trim().isEmpty()) {
             String[] ex = experience.split("\\n+");
@@ -75,7 +63,6 @@ public class PreviewCVController {
             experienceVBox.getChildren().add(new Label("No experience provided."));
         }
 
-        // Projects
         projectsVBox.getChildren().clear();
         if (projects != null && !projects.trim().isEmpty()) {
             String[] pr = projects.split("\\n+");
@@ -87,7 +74,6 @@ public class PreviewCVController {
             projectsVBox.getChildren().add(new Label("No projects provided."));
         }
 
-        // Education: if your CreateCV had an education TableView, you can update this later.
         educationVBox.getChildren().clear();
         educationVBox.getChildren().add(new Label("Education details appear here."));
     }
