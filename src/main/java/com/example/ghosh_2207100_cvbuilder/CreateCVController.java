@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -28,7 +29,7 @@ public class CreateCVController {
     @FXML private TextArea experienceArea;
     @FXML private TextArea projectsArea;
 
-    @FXML private TextField educationField;
+    @FXML private TextArea skillsArea1;
 
     @FXML private Button generateButton;
 
@@ -40,9 +41,7 @@ public class CreateCVController {
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
         );
 
-        File file = fileChooser.showOpenDialog(
-                ((Node) event.getSource()).getScene().getWindow()
-        );
+        File file = fileChooser.showOpenDialog(null);
 
         if (file != null) {
             Image img = new Image(file.toURI().toString());
@@ -52,6 +51,7 @@ public class CreateCVController {
 
     @FXML
     private void handleGenerateCV(ActionEvent event) throws IOException {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("PreviewCV.fxml"));
         Scene scene = new Scene(loader.load());
 
@@ -65,7 +65,7 @@ public class CreateCVController {
                 experienceArea.getText(),
                 projectsArea.getText(),
                 profileImagePreview.getImage(),
-                educationField.getText()
+                skillsArea1.getText()
         );
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

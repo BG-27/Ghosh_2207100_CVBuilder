@@ -68,7 +68,7 @@ public class PreviewCVController {
 
         educationVBox.getChildren().clear();
         if (education != null && !education.trim().isEmpty()) {
-            String[] eduItems = education.split("[,\\n]+"); // Assuming education details are separated by commas or new lines
+            String[] eduItems = education.split("[,\\n]+");
             for (String edu : eduItems) {
                 Label educationLabel = new Label(edu.trim());
                 educationVBox.getChildren().add(educationLabel);
