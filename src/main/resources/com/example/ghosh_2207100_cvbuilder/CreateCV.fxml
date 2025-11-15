@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ghosh_2207100_cvbuilder.CreateCVController">
+
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <Label style="-fx-font-size: 26px; -fx-font-weight: bold;" text="Create Your CV" />
+
+            <Separator prefWidth="500" />
+        </VBox>
+    </top>
+
+
+    <center>
+        <GridPane hgap="15" vgap="12">
+            <padding>
+                <Insets bottom="25" left="25" right="25" top="25" />
+            </padding>
+
+            <Label text="Full Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="fullNameField" promptText="First Name        Last Name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="emailField" promptText="***@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Phone Number:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="phoneField" promptText="01*********" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <Label text="Educational Qualifications:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <TableView fx:id="educationTable" prefHeight="120" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <columns>
+                    <TableColumn fx:id="examColumn" prefWidth="100" text="Name of Exam" />
+                    <TableColumn fx:id="yearColumn" prefWidth="100" text="Passing Year" />
+                    <TableColumn fx:id="boardColumn" prefWidth="150" text="Board/University" />
+                    <TableColumn fx:id="gpaColumn" prefWidth="100" text="GPA/CGPA" />
+                </columns>
+            </TableView>
+
+            <Label text="Skills:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <TextArea fx:id="skillsArea" prefRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+            <Label text="Work Experience:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+            <TextArea fx:id="experienceArea" prefRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+            <Label text="Projects:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+            <TextArea fx:id="projectsArea" prefRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+        </GridPane>
+    </center>
+
+
+    <bottom>
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <Button fx:id="generateButton" onAction="#handleGenerateCV" prefWidth="200" text="Generate CV" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
