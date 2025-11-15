@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -36,7 +37,11 @@
                 <Insets bottom="25" left="25" right="25" top="25" />
             </padding>
 
-            <Label text="Full Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Button fx:id="uploadButton" onAction="#handleUploadPhoto" text="Upload Photo" />
+                <ImageView fx:id="profileImagePreview" fitHeight="100" fitWidth="100" />
+            </HBox>
             <TextField fx:id="fullNameField" promptText="First Name        Last Name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
             <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
