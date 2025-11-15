@@ -1,95 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.ghosh_2207100_cvbuilder.CreateCVController">
-
-    <top>
-        <VBox alignment="CENTER" spacing="8" style="-fx-background-color: #f0f8ff;">
-            <padding>
-                <Insets top="15" right="15" bottom="15" left="15"/>
-            </padding>
-            <Label text="Create Your CV" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
-            <Label text="Fill in your details below" style="-fx-text-fill: #555;"/>
-        </VBox>
-    </top>
-
-    <center>
-        <GridPane hgap="10" vgap="10">
-            <padding>
-                <Insets top="20" right="20" bottom="20" left="20"/>
-            </padding>
-
-            <columnConstraints>
-                <ColumnConstraints percentWidth="30"/>
-                <ColumnConstraints percentWidth="70"/>
-            </columnConstraints>
-
-            <Label text="Full Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <TextField fx:id="fullNameField"
-                       GridPane.rowIndex="0" GridPane.columnIndex="1"
-                       promptText="Enter your full name"/>
-
-            <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <TextField fx:id="emailField"
-                       GridPane.rowIndex="1" GridPane.columnIndex="1"
-                       promptText="Enter your email"/>
-
-            <Label text="Phone:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-            <TextField fx:id="phoneField"
-                       GridPane.rowIndex="2" GridPane.columnIndex="1"
-                       promptText="Enter your phone number"/>
-
-            <Label text="Address:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-            <TextField fx:id="addressField"
-                       GridPane.rowIndex="3" GridPane.columnIndex="1"
-                       promptText="Enter your address"/>
-
-            <Label text="Skills:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-            <TextArea fx:id="skillsArea"
-                      GridPane.rowIndex="4" GridPane.columnIndex="1"
-                      prefRowCount="3"
-                      promptText="e.g. Java, JavaFX, SQL"/>
-
-            <Label text="Work Experience:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-            <TextArea fx:id="experienceArea"
-                      GridPane.rowIndex="5" GridPane.columnIndex="1"
-                      prefRowCount="4"
-                      promptText="List your work experience, one per line"/>
-
-            <Label text="Projects:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-            <TextArea fx:id="projectsArea"
-                      GridPane.rowIndex="6" GridPane.columnIndex="1"
-                      prefRowCount="4"
-                      promptText="List your projects, one per line"/>
-
-        </GridPane>
-    </center>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1084.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ghosh_2207100_cvbuilder.CreateCVController">
 
     <right>
         <VBox spacing="10">
             <padding>
-                <Insets top="20" right="20" bottom="20" left="0"/>
+                <Insets bottom="20" left="0" right="20" top="20" />
             </padding>
 
-            <ImageView fx:id="profileImagePreview" fitWidth="120" fitHeight="120"
-                       style="-fx-border-color: #ccc; -fx-border-width: 1;"/>
+            <ImageView fx:id="profileImagePreview" fitHeight="116.0" fitWidth="120" style="-fx-border-color: #ccc; -fx-border-width: 1;" />
 
-            <Button fx:id="uploadButton" text="Upload Photo"
-                    onAction="#handleUploadPhoto"
-                    style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            <Button fx:id="uploadButton" onAction="#handleUploadPhoto" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Upload Photo" />
 
-            <Separator/>
+            <Separator />
 
-            <Button fx:id="generateButton" text="Generate CV"
-                    onAction="#handleGenerateCV"
-                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Button fx:id="generateButton" onAction="#handleGenerateCV" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" text="Generate CV" />
         </VBox>
     </right>
+
+    <center>
+        <GridPane hgap="10" vgap="10" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <columnConstraints>
+                <ColumnConstraints percentWidth="30" />
+                <ColumnConstraints percentWidth="70" />
+            </columnConstraints>
+
+            <Label text="Full Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="fullNameField" promptText="Enter your full name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Email:" GridPane.rowIndex="2" />
+            <TextField fx:id="emailField" promptText="***@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Phone:" GridPane.rowIndex="3" />
+            <TextField fx:id="phoneField" promptText="01*********" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <Label text="Address:" GridPane.rowIndex="4" />
+
+            <Label text="Education:" GridPane.rowIndex="5" />
+            <TextField fx:id="educationField" promptText="e.g. Bachelors, 2020, XYZ University" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+            <Label text="Skills:" GridPane.rowIndex="6" />
+            <TextArea fx:id="skillsArea" prefRowCount="3" promptText="e.g. Java, JavaFX, SQL" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+            <Label text="Work Experience:" GridPane.rowIndex="7" />
+            <TextArea fx:id="experienceArea" prefRowCount="4" promptText="List your work experience" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+            <Label text="Projects:" GridPane.rowIndex="8" />
+            <TextArea fx:id="projectsArea" prefRowCount="4" promptText="List your projects" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints maxHeight="395.20001220703125" minHeight="199.20004272460938" prefHeight="202.40005493164062" />
+                <RowConstraints maxHeight="270.39995727539065" minHeight="58.40001220703118" prefHeight="103.99998779296868" />
+                <RowConstraints maxHeight="298.3999877929688" minHeight="79.99996337890627" prefHeight="105.60000000000002" />
+                <RowConstraints maxHeight="263.2000366210938" minHeight="95.20003662109377" prefHeight="237.60000000000002" />
+            </rowConstraints>
+
+        </GridPane>
+    </center>
 
 </BorderPane>

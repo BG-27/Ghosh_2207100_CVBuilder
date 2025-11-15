@@ -15,6 +15,5 @@ public class Main extends Application {
         stage.setTitle("CV Builder Home");
         stage.show();
     }
-
     public static void main(String[] args) {
         launch(args);}}

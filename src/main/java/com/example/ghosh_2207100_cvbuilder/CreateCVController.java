@@ -24,11 +24,11 @@ public class CreateCVController {
     @FXML private TextField phoneField;
     @FXML private TextField addressField;
 
-    @FXML private TableView<?> educationTable;
-
     @FXML private TextArea skillsArea;
     @FXML private TextArea experienceArea;
     @FXML private TextArea projectsArea;
+
+    @FXML private TextField educationField;
 
     @FXML private Button generateButton;
 
@@ -52,26 +52,25 @@ public class CreateCVController {
 
     @FXML
     private void handleGenerateCV(ActionEvent event) throws IOException {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("PreviewCV.fxml"));
         Scene scene = new Scene(loader.load());
 
         PreviewCVController controller = loader.getController();
         controller.setData(
-                safeText(fullNameField.getText()),
-                safeText(emailField.getText()),
-                safeText(phoneField.getText()),
-                safeText(addressField.getText()),
-                safeText(skillsArea.getText()),
-                safeText(experienceArea.getText()),
-                safeText(projectsArea.getText()),
-                profileImagePreview.getImage() );
+                fullNameField.getText(),
+                emailField.getText(),
+                phoneField.getText(),
+                addressField.getText(),
+                skillsArea.getText(),
+                experienceArea.getText(),
+                projectsArea.getText(),
+                profileImagePreview.getImage(),
+                educationField.getText()
+        );
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Preview CV");
-        stage.show();}
-
-    private String safeText(String s) {
-        return s == null ? "" : s;
-    }}
+        stage.show();
+    }
+}

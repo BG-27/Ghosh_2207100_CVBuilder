@@ -9,7 +9,6 @@ import javafx.scene.layout.VBox;
 public class PreviewCVController {
 
     @FXML private ImageView profileImageView;
-
     @FXML private Label nameLabel;
     @FXML private Label emailLabel;
     @FXML private Label phoneLabel;
@@ -20,20 +19,13 @@ public class PreviewCVController {
     @FXML private VBox experienceVBox;
     @FXML private VBox projectsVBox;
 
+    public void setData(String name, String email, String phone, String address,
+                        String skills, String experience, String projects, Image profileImage, String education) {
 
-    public void setData(String name,
-                        String email,
-                        String phone,
-                        String address,
-                        String skills,
-                        String experience,
-                        String projects,
-                        Image profileImage) {
-
-        nameLabel.setText(name != null ? name : "");
-        emailLabel.setText(email != null && !email.isEmpty() ? email : "");
-        phoneLabel.setText(phone != null ? phone : "");
-        addressLabel.setText(address != null ? address : "");
+        nameLabel.setText(name != null && !name.isEmpty() ? name : "No name provided");
+        emailLabel.setText(email != null && !email.isEmpty() ? email : "No email provided");
+        phoneLabel.setText(phone != null && !phone.isEmpty() ? phone : "No phone provided");
+        addressLabel.setText(address != null && !address.isEmpty() ? address : "No address provided");
 
         if (profileImage != null) {
             profileImageView.setImage(profileImage);
@@ -75,6 +67,14 @@ public class PreviewCVController {
         }
 
         educationVBox.getChildren().clear();
-        educationVBox.getChildren().add(new Label("Education details appear here."));
+        if (education != null && !education.trim().isEmpty()) {
+            String[] eduItems = education.split("[,\\n]+"); // Assuming education details are separated by commas or new lines
+            for (String edu : eduItems) {
+                Label educationLabel = new Label(edu.trim());
+                educationVBox.getChildren().add(educationLabel);
+            }
+        } else {
+            educationVBox.getChildren().add(new Label("No education details provided."));
+        }
     }
 }
