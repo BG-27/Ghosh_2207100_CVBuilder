@@ -7,15 +7,14 @@ import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class HomeScreenController {
 
     @FXML
-    private void handleCreateCV(ActionEvent event) throws IOException {
+    private void handleCreateCV(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateCV.fxml"));
+        Scene scene = new Scene(loader.load());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(loader.load()));
+        stage.setScene(scene);
         stage.setTitle("Create Your CV");
         stage.show();
     }
