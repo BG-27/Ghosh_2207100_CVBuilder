@@ -45,9 +45,7 @@ public class CreateCVController {
 
         if (file != null) {
             Image img = new Image(file.toURI().toString());
-            profileImagePreview.setImage(img);
-        }
-    }
+            profileImagePreview.setImage(img);}}
 
     @FXML
     private void handleGenerateCV(ActionEvent event) throws IOException {
@@ -71,6 +69,4 @@ public class CreateCVController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Preview CV");
-        stage.show();
-    }
-}
+        stage.show();}}
